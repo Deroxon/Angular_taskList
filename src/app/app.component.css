@@ -1,0 +1,22 @@
+.main {
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    text-align: center;
+}
+.container {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    display:grid;
+    margin-top:30px;
+}
+.tasks {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.Dtasks{
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+ul {
+    list-style-type: decimal;
+}
