@@ -2,7 +2,7 @@
     Lista zadań {{tasksList.length}}
     <ul>
       <li *ngFor="let task of tasksList;">
-        {{task}}
+        {{task.name}}
         <button (click)='remove(task)'>Usuń</button>
         <button (click)="done(task)">Zrobione</button>
       </li>
