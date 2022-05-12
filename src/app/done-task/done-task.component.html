@@ -1,8 +1,8 @@
 <div class="Dtasks">
     Zadania wykonane: {{tasksDone.length}}
     <ul>
-      <li *ngFor="let taskDone of tasksDone">
-        {{taskDone.name}}
+      <li appChecked appDate [date]="taskDone.end" *ngFor="let taskDone of tasksDone">
+        {{taskDone.name| transformTask : ' - super!'}}
 
       </li>
     </ul>

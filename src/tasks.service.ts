@@ -13,8 +13,17 @@ export class Tasks {
    private taskDoneObs = new BehaviorSubject<Array<Task>>([])
 
     constructor() {
+      this.tasksList = [
+        {name:'zmyć naczynia', create: new Date()},
+        {name:'Sprzatanie kuwety', create: new Date()},
+        {name:'Wynieść smieci', create: new Date()},
+        {name:'nakarmić pieski', create: new Date()},
+        
+
+      ]
+
         //this.taskDoneObs.next(this.tasksDone)
-        //this.taskListObs.next(this.tasksList)
+        this.taskListObs.next(this.tasksList)
     }
 
  
