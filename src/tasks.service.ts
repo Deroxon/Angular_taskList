@@ -6,51 +6,43 @@ import {Task} from "./app/model/task"
 
 export class Tasks {
 
-   private tasksList: Array<Task> = []
-   private tasksDone: Array<Task> = []
-
    private taskListObs = new BehaviorSubject<Array<Task>>([])
-   private taskDoneObs = new BehaviorSubject<Array<Task>>([])
 
     constructor() {
-      this.tasksList = [
-        {name:'zmyć naczynia', create: new Date()},
-        {name:'Sprzatanie kuwety', create: new Date()},
-        {name:'Wynieść smieci', create: new Date()},
-        {name:'nakarmić pieski', create: new Date()},
+      const tasksList = [
+        {name:'zmyć naczynia', create: new Date().toLocaleString(), isDone:false,},
+        {name:'Sprzatanie kuwety', create: new Date().toLocaleString(), isDone:false},
+        {name:'Wynieść smieci', create: new Date().toLocaleString(), isDone:false},
+        {name:'nakarmić pieski', create: new Date().toLocaleString(), isDone:false},
+        {name:'nakarmić pieski', create: new Date().toLocaleString(), isDone:true, end: new Date().toLocaleString()},
         
 
       ]
-
-        //this.taskDoneObs.next(this.tasksDone)
-        this.taskListObs.next(this.tasksList)
+        this.taskListObs.next(tasksList)
     }
 
- 
       add(task: Task) {
-        this.tasksList.push(task)
-        this.taskListObs.next(this.tasksList)
+        const list = this.taskListObs.getValue();
+        list.push(task)
+        this.taskListObs.next(list)
       }
-    
     
       remove(task: Task) {
-        this.tasksList = this.tasksList.filter( e => e !== task)
-        this.taskListObs.next(this.tasksList)
+        const list = this.taskListObs.getValue().filter( e => e !== task)
+        this.taskListObs.next(list)
       }
-
-
+      
       done(task: Task) {
-        this.tasksDone.push(task)
-        this.remove(task)
-        this.taskDoneObs.next(this.tasksDone)
+        task.end = new Date().toLocaleString()
+        task.isDone = true
+        const list = this.taskListObs.getValue();
+        this.taskListObs.next(list)
       }
 
       getTaskList$(): Observable<Array<Task>> {
           return this.taskListObs.asObservable()
       }
-      getDoneList$(): Observable<Array<Task>> {
-        return this.taskDoneObs.asObservable()
-    }
+     
     
 
 }
