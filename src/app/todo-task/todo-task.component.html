@@ -1,4 +1,3 @@
-<div class="tasks">
     Lista zadań {{tasksList.length}}
     <ul>
       <li appDate [date]="task.create"  *ngFor="let task of tasksList | sortName">
@@ -7,4 +6,3 @@
         <button (click)="done(task)">Zrobione</button>
       </li>
     </ul>
-  </div>

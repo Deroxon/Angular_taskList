@@ -1,9 +1,12 @@
-<div class="Dtasks">
+
     Zadania wykonane: {{tasksDone.length}}
     <ul>
       <li *ngFor="let taskDone of tasksDone" appChecked appDate [date]="taskDone.end!" >
-        {{taskDone.name| transformTask : ' - super!'}}
-
+       <input type='text' class='Dtask' [ngClass]= "editMode ? 'inputDtaskOn': 'inputDtask'"
+       [(ngModel)]="taskDone.name" [disabled]= "!editMode"/>
+        <div *ngIf="editMode">
+            <button (click)="remove(taskDone)">X</button>
+            <button (click)="edit(taskDone)">E</button>
+        </div>
       </li>
     </ul>
-  </div>

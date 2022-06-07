@@ -1,5 +1,5 @@
 export interface Task {
-    _id?: { $oid: string},
+    id?: string,
     name: string,
     create: string,
     end?: string,

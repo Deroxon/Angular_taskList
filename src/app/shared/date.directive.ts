@@ -16,7 +16,7 @@ export class DateDirective {
   // hostListener działaja jak coś typu addeventListener
   @HostListener('mouseenter') 
   mouseenter(eventDate: Event) { 
-     this.paragraph.innerHTML = this.date;
+     this.paragraph.innerHTML = `Created: ${this.date}`;
     this.renderer.appendChild(this.el.nativeElement, this.paragraph)
   }
 

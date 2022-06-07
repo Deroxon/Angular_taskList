@@ -1,16 +1,26 @@
 <div class="main">
+
   <div class="container">
     <app-add-task></app-add-task>
+    <h2><button (click)="editTasks()">Edit mode {{subEdit ? "ON": "OFF"}}</button></h2>
   </div>
 
     <div class="container">
 
-     <app-todo-task></app-todo-task>
+     <app-todo-task
+     [ngClass]='"tasks"'
+     ></app-todo-task>
 
      
-     <app-done-task> </app-done-task>
+    
+     <app-done-task
+     [ngClass]="'Dtasks'"
+     ></app-done-task>
 
     </div>
-
+   
+    <div *ngIf="showLoadingIndicator" class='whiteScreen'>
+      <div class="spinner"></div>
+    </div>
 </div>
 
