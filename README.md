@@ -14,6 +14,8 @@ This application is basic toDoList, it has 3 goals:
 - implementing interface in practice
 - using Observable's and learn about them
 - Subscribing
+- Using API and methods GET/POST/PUT/DELETE
+- Using Angular MatSnackBar and learn how to config it
 
 # Angular2
 
