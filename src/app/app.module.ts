@@ -15,6 +15,8 @@ import { SortNamePipe } from './shared/sort-name.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PriorityDirective } from './shared/priority.directive';
+import { ShortDatePipe } from './shared/shortDate.pipe';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DoneTaskComponent,
     CheckedDirective,
     DateDirective,
+    PriorityDirective,
     TransformTaskPipe,
     SortNamePipe,
+    ShortDatePipe
   ],
   imports: [
     BrowserModule,

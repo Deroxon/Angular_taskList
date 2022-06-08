@@ -8,7 +8,11 @@ import { HttpClient } from '@angular/common/http';
 
 export class Tasks {
 
-// localStorage aby użytkownik miał mozliwosc dodania 10 tasków po czym przy próbi dodania następnego nie doda się póki nie zaakceptuje tego że wie co robi bo dodał jużponad 10 tasków do małej bazy danych
+//clear all base function
+// need to have optional time to do tasks / need to add element in mockapi, TASK and other places where is needed 
+// ważność zadań
+// Improve style/fonts/container should be less shape
+// settings icon with moved edit mode/night mode
 
    private taskListObs$ = new BehaviorSubject<Array<Task>>([])
    private isSended$ = new BehaviorSubject<boolean>(true)
@@ -17,7 +21,6 @@ export class Tasks {
    private editMode$ = new BehaviorSubject<boolean>(this.editMode)
     constructor(private http: HttpClient, ) {
        this.getAllPosts()
-
       
     }
 
@@ -43,12 +46,8 @@ export class Tasks {
           this.isSended$.next(true)
           console.log(this.taskCounter)
         }
-        else {
+        else {}
 
-        }
-        
-
-       
       }
 
       localStorageCount() {

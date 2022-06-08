@@ -1,4 +1,9 @@
 <div>
     <input [(ngModel)]="newTask">
+    <input type="datetime-local" [(ngModel)]="dateComplete" />
+    <div> 
+        <input type="range" value=0 min=0 max=9 [(ngModel)]="priority" />
+        Priority {{priority}}
+    </div>
     <button (click)="add()">Dodaj</button>
 </div>

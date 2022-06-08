@@ -1,7 +1,7 @@
 
     Zadania wykonane: {{tasksDone.length}}
     <ul>
-      <li *ngFor="let taskDone of tasksDone" appChecked appDate [date]="taskDone.end!" >
+      <li *ngFor="let taskDone of tasksDone" appDate [date]="taskDone.end!" priority [priorityNumber]='taskDone.priority' >
        <input type='text' class='Dtask' [ngClass]= "editMode ? 'inputDtaskOn': 'inputDtask'"
        [(ngModel)]="taskDone.name" [disabled]= "!editMode"/>
         <div *ngIf="editMode">
