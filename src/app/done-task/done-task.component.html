@@ -5,8 +5,8 @@
        <input type='text' class='Dtask' [ngClass]= "editMode ? 'inputDtaskOn': 'inputDtask'"
        [(ngModel)]="taskDone.name" [disabled]= "!editMode"/>
         <div *ngIf="editMode">
-            <button (click)="remove(taskDone)">X</button>
-            <button (click)="edit(taskDone)">E</button>
+            <button class="x" (click)="remove(taskDone)"></button>
+            <button appChecked (click)="edit(taskDone)"></button>
         </div>
       </li>
     </ul>

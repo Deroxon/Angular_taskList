@@ -1,0 +1,8 @@
+
+
+<button (click)="toggleSetting()" class="settingMain"></button>
+
+<ul *ngIf="isSettings">
+    <li><button (click)="editTasks()">Edit mode {{subEdit ? "ON": "OFF"}}</button></li>
+    <li><button (click)="nightMode()">Night mode {{isNightMode ? "ON": "OFF"}}</button></li>
+</ul>

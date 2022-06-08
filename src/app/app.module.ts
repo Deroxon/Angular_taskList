@@ -17,19 +17,30 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PriorityDirective } from './shared/priority.directive';
 import { ShortDatePipe } from './shared/shortDate.pipe';
+import { SettingsComponent } from './settings/settings.component';
+import { NightModeDirective } from './shared/nightMode.directive';
 
 @NgModule({
   declarations: [
+
+    //Components
     AppComponent,
     AddTaskComponent,
     TodoTaskComponent,
     DoneTaskComponent,
+    SettingsComponent,
+
+    //Directives
     CheckedDirective,
     DateDirective,
     PriorityDirective,
+    NightModeDirective,
+
+    //Pipes
     TransformTaskPipe,
     SortNamePipe,
-    ShortDatePipe
+    ShortDatePipe,
+    
   ],
   imports: [
     BrowserModule,

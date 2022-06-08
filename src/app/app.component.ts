@@ -10,7 +10,7 @@ import { Tasks } from 'src/tasks.service';
 export class AppComponent {
 
   showLoadingIndicator: boolean = true;
-  subEdit: any;
+
   constructor(private tasksService: Tasks){}
 
   ngOnInit() {
@@ -18,11 +18,6 @@ export class AppComponent {
       this.showLoadingIndicator = data
       setTimeout( ()=> this.showLoadingIndicator = false, 800)
     })
-    this.tasksService.getEditModeValue().subscribe( data => this.subEdit = data )
-  }
-
-  editTasks() {
-    this.tasksService.setEditMode()
   }
 
 }

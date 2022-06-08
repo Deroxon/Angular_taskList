@@ -1,0 +1,21 @@
+.settingMain {
+    width:30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background: url("../../assets/icons/settings.png");
+    margin:1.5px;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    position: absolute;
+    left:0;
+}
+.settingMain:hover {
+    opacity: 1
+}
+
+ul {
+    margin-left: 10px;
+    list-style-type: none;
+}

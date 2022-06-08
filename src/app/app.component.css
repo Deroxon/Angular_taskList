@@ -1,11 +1,21 @@
 .main {
-    display:grid;
+
     grid-template-columns: 25% 25% 25% 25%;
     text-align: center;
-    width:90vw;
+    width:100vw;
+    height: 100vh;
     margin-left:auto;
     margin-right:auto;
-    background:rgba(226, 221, 221, 0.3);
+    background:url("../assets/noteBg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.mainNightMode {
+    background:url("../assets/blackBg.jpg");
+    color: rgba(255, 255, 255, 0.89);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100vh;
 }
 .container {
     grid-column-start: 1;
@@ -15,11 +25,13 @@
 }
 .tasks {
     grid-column-start: 1;
-    grid-column-end: 2;
+    grid-column-end: 3;
+    margin-left:50px;
 }
 .Dtasks{
     grid-column-start: 3;
     grid-column-end: 5;
+    margin-right: 40px;
 }
 ul {
     list-style-type: decimal;
@@ -35,7 +47,8 @@ ul {
     height: 80px;
     animation: spin 700ms linear infinite;
     top:50%;
-    left:50%;
+    left:45%;
+    z-index: 1000;
     position: absolute;
   }
   @keyframes spin {
@@ -48,4 +61,12 @@ ul {
       width: 100%;
       background-color:rgba(235, 235, 235, 0.4);
       position: absolute;
+  }
+
+
+  .settings {
+      position: absolute;
+      top:0px;
+      left:0px;
+      min-width: 200px;
   }

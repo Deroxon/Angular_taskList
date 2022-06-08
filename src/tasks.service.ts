@@ -9,16 +9,19 @@ import { HttpClient } from '@angular/common/http';
 export class Tasks {
 
 //clear all base function
-// need to have optional time to do tasks / need to add element in mockapi, TASK and other places where is needed 
-// ważność zadań
 // Improve style/fonts/container should be less shape
 // settings icon with moved edit mode/night mode
 
+   editMode = false
+   NightMode = false
+
+ 
    private taskListObs$ = new BehaviorSubject<Array<Task>>([])
    private isSended$ = new BehaviorSubject<boolean>(true)
    private taskCounter = Number(localStorage.getItem('taskCount'))
-   editMode = false
    private editMode$ = new BehaviorSubject<boolean>(this.editMode)
+   private isNightMode$ = new BehaviorSubject<boolean>(this.NightMode)
+ 
     constructor(private http: HttpClient, ) {
        this.getAllPosts()
       
@@ -28,7 +31,6 @@ export class Tasks {
       getAllPosts() {
         return this.http.get<Array<Task>>("https://629600b975c34f1f3b26b949.mockapi.io/toDoList").subscribe(posts => {
           this.taskListObs$.next(posts)
-          console.log(posts)
           this.isSended$.next(true)
         }
         )
@@ -44,7 +46,6 @@ export class Tasks {
           this.http.post<Task>("https://629600b975c34f1f3b26b949.mockapi.io/toDoList", task).subscribe()
           setTimeout( () => this.getAllPosts(), 500)
           this.isSended$.next(true)
-          console.log(this.taskCounter)
         }
         else {}
 
@@ -90,6 +91,21 @@ export class Tasks {
       setEditMode() {
         this.editMode = !this.editMode
         this.editMode$.next(this.editMode)
+      }
+
+      nightMode() {
+        this.NightMode = !this.NightMode
+        this.isNightMode$.next(this.NightMode)
+      }
+
+
+
+      /// RETURNING AS OBSERVABLE SUBSCRIPTIONS
+
+
+
+      subNightMode$() {
+        return this.isNightMode$.asObservable()
       }
 
       getTaskList$(): Observable<Array<Task>> {

@@ -1,8 +1,15 @@
-<div class="main">
+<div class="main" nightMode>
+
+   
+  <div *ngIf="showLoadingIndicator" class='whiteScreen'>
+    <div class="spinner"></div>
+  </div>
 
   <div class="container">
+    <settings-component [ngClass]="'settings'"></settings-component>
+
     <app-add-task></app-add-task>
-    <h2><button (click)="editTasks()">Edit mode {{subEdit ? "ON": "OFF"}}</button></h2>
+ 
   </div>
 
     <div class="container">
@@ -18,9 +25,6 @@
      ></app-done-task>
 
     </div>
-   
-    <div *ngIf="showLoadingIndicator" class='whiteScreen'>
-      <div class="spinner"></div>
-    </div>
+  
 </div>
 

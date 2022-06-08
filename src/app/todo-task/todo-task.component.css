@@ -1,6 +1,7 @@
 ul li {
     border:0.5px solid rgb(151, 147, 147);
     border-radius: 5px;
+    width:90%;
 }
 .taskDate {
     text-align: start;

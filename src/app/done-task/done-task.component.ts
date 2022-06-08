@@ -16,13 +16,14 @@ export class DoneTaskComponent implements OnInit {
 
   tasksDone: Array<Task> = [];
   editMode: boolean = false;
- 
+  
 
 
   constructor(private taskService: Tasks, public snackBar: MatSnackBar) { 
     this.taskService.getTaskList$().subscribe( (tasks: Array<Task>)  => {
       this.tasksDone = tasks.filter( task => task.isDone === true)
     })
+    
   }
 
   ngOnInit(): void {
