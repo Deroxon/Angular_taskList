@@ -3,5 +3,7 @@ export interface Task {
     name: string,
     create: string,
     end?: string,
-    isDone: boolean
+    isDone: boolean,
+    plannedDate?: string,
+    priority?: number
 }

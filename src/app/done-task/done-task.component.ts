@@ -16,7 +16,7 @@ export class DoneTaskComponent implements OnInit {
 
   tasksDone: Array<Task> = [];
   editMode: boolean = false;
-  @Input() taskEdit: Task = {name:'', isDone:false, create: ''}
+ 
 
 
   constructor(private taskService: Tasks, public snackBar: MatSnackBar) { 

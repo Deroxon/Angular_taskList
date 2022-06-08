@@ -1,8 +1,12 @@
     Lista zadań {{tasksList.length}}
     <ul>
-      <li appDate [date]="task.create"  *ngFor="let task of tasksList | sortName">
-        {{task.name | transformTask: ''}}
-        <button (click)='remove(task)'>Usuń</button>
-        <button (click)="done(task)">Zrobione</button>
+      <li  appDate [date]="task.create"  *ngFor="let task of tasksList | sortName" priority [priorityNumber]='task.priority'>
+        <p class="taskDate"> {{task.plannedDate | shortDate }}</p>
+        <br />
+        <p class="taskText">{{task.name | transformTask: ''}} </p>
+        <button class="x"  (click)='remove(task)'></button>
+        <button appChecked (click)="done(task)"></button>
+        
+       
       </li>
     </ul>

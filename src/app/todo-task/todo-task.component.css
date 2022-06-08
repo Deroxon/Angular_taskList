@@ -1,0 +1,34 @@
+ul li {
+    border:0.5px solid rgb(151, 147, 147);
+    border-radius: 5px;
+}
+.taskDate {
+    text-align: start;
+    margin-left:5px;
+    position: relative;
+    top:5px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.taskText {
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button {
+    width:30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    margin:1.5px;
+    background-size: 100%;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7
+}
+button:hover {
+    opacity: 1
+}
+.x {
+    background-image: url('../../assets/delete-button.png');
+}

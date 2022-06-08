@@ -8,18 +8,19 @@ import { HttpClient } from '@angular/common/http';
 
 export class Tasks {
 
-
-
-// trzeba naprawić to aby usuwało się i zrobiło na tym samej stronie a nie po odświeżeniu lub trzech razach, podejrzewam że chodzi o to ze błędne dane są brane z bazy dlateog zapytanie ma problem
-// localStorage aby użytkownik miał mozliwosc dodania 10 tasków po czym przy próbi dodania następnego nie doda się póki nie zaakceptuje tego że wie co robi bo dodał jużponad 10 tasków do małej bazy danych
+//clear all base function
+// need to have optional time to do tasks / need to add element in mockapi, TASK and other places where is needed 
+// ważność zadań
+// Improve style/fonts/container should be less shape
+// settings icon with moved edit mode/night mode
 
    private taskListObs$ = new BehaviorSubject<Array<Task>>([])
    private isSended$ = new BehaviorSubject<boolean>(true)
+   private taskCounter = Number(localStorage.getItem('taskCount'))
    editMode = false
    private editMode$ = new BehaviorSubject<boolean>(this.editMode)
     constructor(private http: HttpClient, ) {
        this.getAllPosts()
-
       
     }
 
@@ -36,13 +37,31 @@ export class Tasks {
 
       // Adding TaskList with animation to give some time for mockapi
       add(task: Task) {
-        const list = this.taskListObs$.getValue();
-        list.push(task)
-        this.taskListObs$.next(list)
-        this.http.post<Task>("https://629600b975c34f1f3b26b949.mockapi.io/toDoList", task).subscribe()
-        setTimeout( () => this.getAllPosts(), 500)
-        this.isSended$.next(true)
+        if(this.localStorageCount()) {
+          const list = this.taskListObs$.getValue();
+          list.push(task)
+          this.taskListObs$.next(list)
+          this.http.post<Task>("https://629600b975c34f1f3b26b949.mockapi.io/toDoList", task).subscribe()
+          setTimeout( () => this.getAllPosts(), 500)
+          this.isSended$.next(true)
+          console.log(this.taskCounter)
+        }
+        else {}
+
+      }
+
+      localStorageCount() {
        
+        if(this.taskCounter % 10 ===0) {
+          if(confirm('ALERT, our API has limited number of tasks, do you want to add more?')) { }
+          else {
+            return false
+          }
+          
+        }
+        this.taskCounter++
+        localStorage.setItem('taskCount', JSON.stringify(this.taskCounter))
+        return true
       }
       
       // remove from base TaskList
