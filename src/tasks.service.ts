@@ -2,27 +2,26 @@ import { Injectable, ChangeDetectorRef } from "@angular/core";
 import {BehaviorSubject, Observable} from 'rxjs'
 import {Task} from "./app/model/task"
 import { HttpClient } from '@angular/common/http';
-
+import { MatSnackBar,MatSnackBarConfig} from '@angular/material/snack-bar';
 
 @Injectable()
 
 export class Tasks {
 
-//clear all base function
-// Improve style/fonts/container should be less shape
-// settings icon with moved edit mode/night mode
-
    editMode = false
    NightMode = false
 
  
+   // tasks to do:
+   // make changing date more simple
+
    private taskListObs$ = new BehaviorSubject<Array<Task>>([])
    private isSended$ = new BehaviorSubject<boolean>(true)
    private taskCounter = Number(localStorage.getItem('taskCount'))
    private editMode$ = new BehaviorSubject<boolean>(this.editMode)
    private isNightMode$ = new BehaviorSubject<boolean>(this.NightMode)
  
-    constructor(private http: HttpClient, ) {
+    constructor(private http: HttpClient, public snackBar: MatSnackBar ) {
        this.getAllPosts()
       
     }
@@ -83,8 +82,9 @@ export class Tasks {
       }
 
       // sending edited task
-      edit(task: Task) {
+      edit(task: Task, communicate?: string) {
         this.http.put<Task>("https://629600b975c34f1f3b26b949.mockapi.io/toDoList/"+task.id, task).subscribe()
+        this.sendAlert(communicate)
       }
 
       // switching editMode
@@ -96,6 +96,13 @@ export class Tasks {
       nightMode() {
         this.NightMode = !this.NightMode
         this.isNightMode$.next(this.NightMode)
+      }
+      // open snackBar
+      sendAlert(communicate: any) {
+        let config = new MatSnackBarConfig()
+        config.duration = 1000
+        this.snackBar.open(communicate, '', config)
+    
       }
 
 

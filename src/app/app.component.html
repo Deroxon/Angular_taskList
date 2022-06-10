@@ -1,12 +1,12 @@
 <div class="main" nightMode>
 
-   
+  <settings-component [ngClass]="'settings'"></settings-component>
   <div *ngIf="showLoadingIndicator" class='whiteScreen'>
     <div class="spinner"></div>
   </div>
 
   <div class="container">
-    <settings-component [ngClass]="'settings'"></settings-component>
+    
 
     <app-add-task></app-add-task>
  

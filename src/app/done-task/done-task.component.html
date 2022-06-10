@@ -1,12 +1,24 @@
 
-    Zadania wykonane: {{tasksDone.length}}
+    Completed tasks: {{tasksDone.length}}
     <ul>
       <li *ngFor="let taskDone of tasksDone" appDate [date]="taskDone.end!" priority [priorityNumber]='taskDone.priority' >
-       <input type='text' class='Dtask' [ngClass]= "editMode ? 'inputDtaskOn': 'inputDtask'"
-       [(ngModel)]="taskDone.name" [disabled]= "!editMode"/>
+       <input
+        type='text'
+        class='Dtask' 
+        [ngClass]= "editMode ? 'inputDtaskOn': 'inputDtask'"
+        [(ngModel)]="taskDone.name" [disabled]= "!editMode"
+        [style.color]="nightMode? 'white' : 'black' "
+        [style.backgroundColor]="nightMode? 'black' : 'rgba(245, 241, 241, 0.3)' "
+        />
         <div *ngIf="editMode">
-            <button class="x" (click)="remove(taskDone)"></button>
-            <button appChecked (click)="edit(taskDone)"></button>
+            <button 
+            [style.backgroundColor]="nightMode? 'black' : 'rgba(208, 212,	221, 0.2)' "
+            class="x" (click)="remove(taskDone)">
+           </button>
+            <button 
+              [style.backgroundColor]="nightMode? 'black' : 'rgba(208, 212,	221, 0.2)' " 
+              appChecked (click)="edit(taskDone)">
+            </button>
         </div>
       </li>
     </ul>

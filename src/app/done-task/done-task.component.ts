@@ -16,12 +16,15 @@ export class DoneTaskComponent implements OnInit {
 
   tasksDone: Array<Task> = [];
   editMode: boolean = false;
-  
+  nightMode: boolean = false
 
 
   constructor(private taskService: Tasks, public snackBar: MatSnackBar) { 
     this.taskService.getTaskList$().subscribe( (tasks: Array<Task>)  => {
       this.tasksDone = tasks.filter( task => task.isDone === true)
+    })
+    this.taskService.subNightMode$().subscribe( data => {
+      this.nightMode = data
     })
     
   }
@@ -39,10 +42,8 @@ export class DoneTaskComponent implements OnInit {
   }
 
   edit(task: Task) {
-    let config = new MatSnackBarConfig()
-    config.duration = 1000
-    this.snackBar.open('Change has been sended to API', '', config)
-    this.taskService.edit(task)
+    let communicate ='Change has been sended to API'
+    this.taskService.edit(task, communicate)
   }
 
 

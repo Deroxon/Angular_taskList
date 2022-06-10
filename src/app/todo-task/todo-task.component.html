@@ -1,11 +1,17 @@
-    Lista zadań {{tasksList.length}}
+    Incompleted tasks: {{tasksList.length}}
     <ul>
       <li  appDate [date]="task.create"  *ngFor="let task of tasksList | sortName" priority [priorityNumber]='task.priority'>
         <p class="taskDate"> {{task.plannedDate | shortDate }}</p>
         <br />
         <p class="taskText">{{task.name | transformTask: ''}} </p>
-        <button class="x"  (click)='remove(task)'></button>
-        <button appChecked (click)="done(task)"></button>
+        <button 
+          [style.backgroundColor]="nightMode? 'black' : 'rgba(208, 212,	221, 0.2)	' "
+          class="x"  (click)='remove(task)'>
+        </button>
+        <button 
+        [style.backgroundColor]="nightMode? 'black' : 'rgba(208, 212,	221, 0.2)' "
+         appChecked (click)="done(task)">
+        </button>
         
        
       </li>

@@ -11,12 +11,13 @@ import {Task} from "../model/task"
 export class TodoTaskComponent implements OnInit {
 
   tasksList: Array<Task> = [];
-
+  nightMode: boolean = false
 
   constructor(private taskService: Tasks) {
     this.taskService.getTaskList$().subscribe( (tasks: Array<Task>) => {
       this.tasksList = tasks.slice().filter( task => task.isDone === false)
     })
+    this.taskService.subNightMode$().subscribe( data => this.nightMode = data)
    }
 
   ngOnInit(): void {
