@@ -16,6 +16,7 @@ This application is basic toDoList, it has 3 goals:
 - Subscribing
 - Using API and methods GET/POST/PUT/DELETE
 - Using Angular MatSnackBar and learn how to config it
+- Using Angular Material
 
 # Angular2
 
