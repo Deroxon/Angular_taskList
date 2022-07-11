@@ -8,13 +8,9 @@
     padding-bottom: 75%; /* for a 4:3 aspect ratio */
     -webkit-background-size: cover;
     -moz-background-size: cover;
-      -o-background-size: cover;
-         background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
-html, body {
-    height: 100%;
-    margin: 0;
-  }
 
 
 .mainNightMode {
@@ -80,6 +76,19 @@ ul {
       top:0px;
       left:0px;
       min-width: 200px;
+
   }
 
-
+@media screen and (max-width: 500px) {
+    .tasks {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    .Dtasks{
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    .main {
+        background: none;
+    }
+}

@@ -20,6 +20,7 @@ export class Tasks {
    private taskCounter = Number(localStorage.getItem('taskCount'))
    private editMode$ = new BehaviorSubject<boolean>(this.editMode)
    private isNightMode$ = new BehaviorSubject<boolean>(this.NightMode)
+   private DateOfTask$ = new BehaviorSubject<string>('')
  
     constructor(private http: HttpClient, public snackBar: MatSnackBar ) {
        this.getAllPosts()
@@ -105,10 +106,17 @@ export class Tasks {
     
       }
 
+      // setDate
 
+      setTaskDate(date: string) {
+        this.DateOfTask$.next(date)
+      }
 
       /// RETURNING AS OBSERVABLE SUBSCRIPTIONS
 
+      subTaskDate$(): Observable<string> {
+        return this.DateOfTask$.asObservable()
+      }
 
 
       subNightMode$() {

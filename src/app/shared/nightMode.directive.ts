@@ -19,7 +19,6 @@ export class NightModeDirective  {
   @Input() isNightMode: boolean = false
 
   ngDoCheck() {
-    console.log('work')
     let li = this.el.nativeElement;
     if(this.isNightMode) {
         this.renderer.addClass(li, "mainNightMode")

@@ -18,8 +18,8 @@ isNightMode: boolean = false;
 
 ngOnInit() {
 
-this.taskService.getEditModeValue().subscribe( data => this.subEdit = data )
-this.taskService.subNightMode$().subscribe(data => this.isNightMode = data)
+this.taskService.getEditModeValue().subscribe( (data:any) => this.subEdit = data )
+this.taskService.subNightMode$().subscribe((data:any) => this.isNightMode = data)
 }
 
 editTasks() {

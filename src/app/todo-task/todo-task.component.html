@@ -1,7 +1,7 @@
     Incompleted tasks: {{tasksList.length}}
     <ul>
       <li  appDate [date]="task.create"  *ngFor="let task of tasksList | sortName" priority [priorityNumber]='task.priority'>
-        <p class="taskDate"> {{task.plannedDate | shortDate }}</p>
+        <p class="taskDate"> {{task.plannedDate }}</p>
         <br />
         <p class="taskText">{{task.name | transformTask: ''}} </p>
         <button 

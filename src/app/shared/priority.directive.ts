@@ -10,7 +10,6 @@ export class PriorityDirective implements OnInit {
   @Input() priorityNumber: any;
 
   ngOnInit():void {
-      console.log(this.priorityNumber)
     let li = this.el.nativeElement;
     this.renderer.setStyle(li, 'list-style-image', "url(/assets/icons/"+this.priorityNumber+"-32.png)")
     //this.renderer.setStyle(li, 'background', 'gray')

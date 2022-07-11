@@ -16,9 +16,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PriorityDirective } from './shared/priority.directive';
-import { ShortDatePipe } from './shared/shortDate.pipe';
 import { SettingsComponent } from './settings/settings.component';
 import { NightModeDirective } from './shared/nightMode.directive';
+import { DatePickerComponent } from './add-task/date-picker/date-picker.component';
+import {MatButtonModule} from "@angular/material/button"
+import {MatDatepickerModule} from "@angular/material/datepicker"
+import {MatInputModule } from "@angular/material/input"
+import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +34,7 @@ import { NightModeDirective } from './shared/nightMode.directive';
     TodoTaskComponent,
     DoneTaskComponent,
     SettingsComponent,
+    DatePickerComponent,
 
     //Directives
     CheckedDirective,
@@ -39,7 +45,7 @@ import { NightModeDirective } from './shared/nightMode.directive';
     //Pipes
     TransformTaskPipe,
     SortNamePipe,
-    ShortDatePipe,
+    DatePickerComponent,
     
   ],
   imports: [
@@ -48,9 +54,17 @@ import { NightModeDirective } from './shared/nightMode.directive';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+ 
+    
+
+    //Angular Material
+    MatButtonModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatNativeDateModule,
   ],
-  providers: [Tasks],
+  providers: [Tasks,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
