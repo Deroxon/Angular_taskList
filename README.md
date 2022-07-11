@@ -1,5 +1,8 @@
 # About this project
-This application is basic toDoList, it has 3 goals:
+This application is basic to do List with connected to the fake API. it saving max 100 records which one is limited
+
+Application has 3 goals:
+
 - Improve my Angular skills
 - To repeat all in this code, on my daily projects to memorize it
 - To do basic functionallity of this App
@@ -17,6 +20,8 @@ This application is basic toDoList, it has 3 goals:
 - Using API and methods GET/POST/PUT/DELETE
 - Using Angular MatSnackBar and learn how to config it
 - Using Angular Material
+
+
 
 # Angular2
 
